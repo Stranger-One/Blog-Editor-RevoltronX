@@ -12,7 +12,12 @@ const Home = () => {
 
   const deleteBlog = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/blogs/delete/${id}`);
+      const response = await axios.delete(`http://localhost:5000/api/blogs/delete/${id}`, {
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
       if(response.status === 200) {
         // console.log("Blog deleted successfully");
         toast.success("Blog deleted successfully")

@@ -116,13 +116,13 @@ const BlogEditor = () => {
       <div className="flex gap-4">
         <button
           onClick={() => handleSaveDraft()}
-          className="px-4 py-2 bg-yellow-500 text-white rounded"
+          className="px-4 py-2 bg-yellow-500 text-white rounded cursor-pointer"
         >
           Save as Draft
         </button>
         <button
           onClick={handlePublish}
-          className="px-4 py-2 bg-green-600 text-white rounded"
+          className="px-4 py-2 bg-green-600 text-white rounded cursor-pointer"
         >
           Publish
         </button>

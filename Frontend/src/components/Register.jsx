@@ -27,7 +27,7 @@ const Register = () => {
 
         localStorage.setItem("token", response.data.token);
         toast.success("Login successful!");
-        dispatch(login(response.data.user)); // Assuming you have a login action in your Redux store
+        dispatch(login(response.data.data)); // Assuming you have a login action in your Redux store
         navigate("/");
       } else {
         console.error("Registration failed: No token received");

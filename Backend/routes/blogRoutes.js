@@ -4,7 +4,7 @@ import auth from "../middlewares/auth.js";
 
 const router = Router();
 
-router.post("/save-draft", async (req, res) => {
+router.post("/save-draft", auth, async (req, res) => {
   const { id, title, content, tags } = req.body;
   try {
     let blog;
@@ -24,7 +24,7 @@ router.post("/save-draft", async (req, res) => {
   }
 });
 
-router.post("/publish", async (req, res) => {
+router.post("/publish", auth, async (req, res) => {
   const { id, title, content, tags } = req.body;
   try {
     let blog;
@@ -62,7 +62,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id", auth, async (req, res) => {
   try {
     const blog = await Blog.findByIdAndDelete(req.params.id);
     if (!blog) {
